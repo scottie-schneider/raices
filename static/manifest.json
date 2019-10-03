@@ -1,20 +1,20 @@
 {
-  "name": "Raices",
-  "short_name": "Raices",
+  "name": "Next Offline",
+  "short_name": "Next Offline",
   "icons": [
     {
-      "src": "/static/raices192.png",
+      "src": "/static/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/static/raices512.png",
+      "src": "/static/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "background_color": "#FFFFFF",
-  "description": "Raices.io -Estamos revolucionando el sector inmobiliario en Colombia.",
+  "description": "make your Next.js application work offline using service workers via Google's workbox",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#000"

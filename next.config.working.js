@@ -1,8 +1,4 @@
-const withPlugins = require("next-compose-plugins");
 const withOffline = require('next-offline');
-const withImages = require('next-images')
-const withCSS = require("@zeit/next-css");
-const withFonts = require('next-fonts');
 
 const nextConfig = {
   target: 'serverless',
@@ -32,4 +28,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([withCSS, withFonts, withImages, withOffline], nextConfig);
+module.exports = withOffline(nextConfig);
