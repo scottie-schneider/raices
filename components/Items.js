@@ -20,12 +20,12 @@ export default class Items extends Component {
         return (
             <div>
                 <p>Items!</p>
-                <Query query={ALL_ITEMS_QUERY}>
+                {/*<Query query={ALL_ITEMS_QUERY}>
                     {({data, error, loading}) => {                        
                         if(error) return <p>Error... {error.message}</p>
                         return <p>I found {data.items.length} items</p>
                     }}
-                </Query>
+                </Query>*/}
             </div>
         )
     }
