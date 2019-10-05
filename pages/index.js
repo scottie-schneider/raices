@@ -7,6 +7,7 @@ import {Row, Col, Input, Badge} from 'reactstrap';
 import Navbar from '../components/Navbar';
 import HomeVariation1 from '../components/HomeVariation1';
 import BlueBackgroundSVG from '../components/backgrounds/BlueBackgroundSVG.svg'
+import Items from '../components/Items';
 
 // bottom sheet for house
 import HouseSheet from '../components/HouseSheet';
@@ -175,6 +176,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <Items/>
          {/* swipeable sheet goes here for house */}
         <HouseSheet 
           open={this.state.open}
