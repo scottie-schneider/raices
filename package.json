@@ -32,6 +32,7 @@
     "react-waypoint": "^9.0.2",
     "reactstrap": "^8.0.1",
     "styled-components": "^4.3.2",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "webpack": "^4.41.0"
   }
 }

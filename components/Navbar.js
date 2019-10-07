@@ -8,7 +8,7 @@ const StyledNav = styled.div`
   bottom: 0;
   margin: 0;
   width: 100%;
-  max-width: 450px;
+  /* max-width: 450px; */
   background: #fff;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   ul {
@@ -37,12 +37,10 @@ const StyledNav = styled.div`
   }
 `
 // icons 
-import SearchPropertyIcon from '../components/icons/SearchPropertyIcon';
-import EventConfirmIcon from '../components/icons/EventConfirmIcon';
-import AgentIcon from '../components/icons/AgentIcon';
-import ChatIcon from '../components/icons/ChatIcon';
-import CalendarIcon from '../components/icons/CalendarIcon';
-import HomeIcon from '../components/icons/HomeIcon';
+import PageIcon from '../components/icons/PageIcon';
+import AtomIcon from '../components/icons/AtomIcon';
+import OrganismIcon from '../components/icons/OrganismIcon';
+import MoleculeIcon from '../components/icons/MoleculeIcon';
 class Navbar extends Component {
   render() {
     return (
@@ -51,49 +49,56 @@ class Navbar extends Component {
             <li>
               <a href="#">
                 {/*icon */}
-                <HomeIcon 
+                <AtomIcon 
                   height={35}
                   width={35}
                   fill="#000"
-                  secondaryfill="#000"
                 />
-                <p>Homes</p>
+                <p>Atoms</p>
               </a>
             </li>
             <li>
               <a href="#">
                 {/*icon */}
-                <CalendarIcon
+                <MoleculeIcon
                   height={35}
                   width={35}
                   fill="#000"
-                  secondaryfill="#000"
                 />
-                <p>Viewings</p>
+                <p>Molecule</p>
               </a>
             </li>
             <li>
               <a href="#">
                 {/*icon */}
-                <ChatIcon 
+                <OrganismIcon 
                   height={35}
                   width={35}
                   fill="#000"
-                  secondaryfill="#000"
                 />
-                <p>Chat</p>
+                <p>Organisms</p>
               </a>
             </li>
             <li>
               <a href="#">
                 {/*icon */}
-                <AgentIcon 
+                <PageIcon
                   height={35}
                   width={35}
                   fill="#000"
-                  secondaryfill="#000"
                 />
-                <p>Agent</p>
+                <p>Templates</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                {/*icon */}
+                <PageIcon
+                  height={35}
+                  width={35}
+                  fill="#000"
+                />
+                <p>Pages</p>
               </a>
             </li>
           </ul>

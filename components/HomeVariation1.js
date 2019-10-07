@@ -131,7 +131,7 @@ class HomeVariation1 extends Component {
               <MediumCard
                 onClick={() => this.props.openBottomSheet(true)}
               >
-                <CardImg top height="250px" src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2006/4/7/2/RE_Dos_Realtor_hor.jpg.rend.hgtvcom.1280.960.suffix/1400935880311.jpeg" alt="Card image cap" />
+                <CardImg top height="250px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/1731_Eugene_St..jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>123 Harrel-Diggity-Dastardly Dr.</CardTitle>
                   <CardSubtitle>Woodcreek Reserve</CardSubtitle>
@@ -141,7 +141,7 @@ class HomeVariation1 extends Component {
               <MediumCard
                 onClick={() => this.props.openBottomSheet(true)}
               >
-              <CardImg top height="250px" src="https://an.rdcpix.com/899725485/eb882dd8759f76f4c7dbee499b65c99ce-f1xd-w480_h480_q80.jpg" alt="Card image cap" />
+              <CardImg top height="250px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/775_Henry_Smith_Street.jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>3853 Cost Avenue</CardTitle>
                   <CardSubtitle>Country Club Heights</CardSubtitle>
@@ -151,7 +151,7 @@ class HomeVariation1 extends Component {
               <MediumCard
                 onClick={() => this.props.openBottomSheet(true)}
               >
-              <CardImg top height="250px" src="https://d126fxm3orgy3k.cloudfront.net/images/535e73961cdabc5e0d000003/60934008/60934008_1.jpg" alt="Card image cap" />
+              <CardImg top height="250px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/123_Harrel_St.jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>2334 Rubaiyat Road</CardTitle>
                   <CardSubtitle>Creekwood Moors Lakedrive The Very Best!</CardSubtitle>
@@ -164,28 +164,28 @@ class HomeVariation1 extends Component {
           <Outer>
             <Flex>
               <SmallCard>
-                <CardImg top height="88px" src="https://jcsignscharlotte.com/wp-content/uploads/2018/03/IMG_0533.jpeg" alt="Card image cap" />
+                <CardImg top height="88px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/352_Hall_St.jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>Wedgewood</CardTitle>
                   <p>2 Homes</p>
                 </CardBody>
               </SmallCard>
               <SmallCard>
-                <CardImg top height="88px" src="https://www.signdesignandinstallation.com/neighborhood/data1/images/neigh1.jpg" alt="Card image cap" />
+                <CardImg top height="88px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/465_Known_Dr..jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>Country Club Heights</CardTitle> 
                   <p>61 Homes</p>               
                 </CardBody>
               </SmallCard>
               <SmallCard>
-                <CardImg top height="88px" src="https://nearwestside.bloomington.in.us/wp-content/uploads/sites/49/2011/07/nws_sign.jpg" alt="Card image cap" />
+                <CardImg top height="88px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/743_Lovelace_Av.jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>Near West Side</CardTitle>              
                   <p>53 Homes</p>                     
                 </CardBody>
               </SmallCard>
               <SmallCard>
-                <CardImg top height="88px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yJovUuyLDiiQFMfj7KvuN-2y8iTpqKJTuj95fFuRvXl2vE-d" alt="Card image cap" />
+                <CardImg top height="88px" src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/286_Lexington_Street.jpg" alt="Card image cap" />
                 <CardBody>
                   <CardTitle>Ashton Heights</CardTitle>                  
                   <p>5 Homes</p>                
