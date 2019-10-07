@@ -62,10 +62,12 @@ class ImageCarousel extends Component {
         ssr={true}
         showDots
       >
-        <Image url={"https://media.gettyimages.com/photos/empty-sofa-at-home-picture-id1032277962?s=612x612"}/>
-        <Image url={"https://s3-ap-southeast-1.amazonaws.com/static-pages-test/static-pages/img/full-house/4bhk/master-bedroom.jpg"}/>
-        <Image url={"https://i.ytimg.com/vi/11aqUfxw15g/maxresdefault.jpg"}/>
-        <Image url={"https://media.gettyimages.com/photos/modern-hipster-apartment-interior-picture-id842254818?s=612x612"}/>
+        <Image url={"https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570486133/Raices/HomePhotos/Interior/interior5.jpg"}/>
+        <Image url={"https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570486132/Raices/HomePhotos/Interior/interior_3.jpg"}/>
+        <Image url={"https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570486132/Raices/HomePhotos/Interior/interior6.jpg"}/>
+        <Image url={"https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570486132/Raices/HomePhotos/Interior/interior4.jpg"}/>
+        <Image url={"https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570486072/Raices/HomePhotos/Interior/interior_photo_1.jpg"}/>
+        <Image url={"https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570486071/Raices/HomePhotos/Interior/Interior_photo_2.jpg"}/>
       </StyledCarousel>
     )
   }
