@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const StyledNav = styled.div`
   position: fixed;
@@ -47,48 +48,52 @@ class Navbar extends Component {
       <StyledNav>
           <ul>
             <li>
-              <a href="#">
-                {/*icon */}
-                <AtomIcon 
-                  height={35}
-                  width={35}
-                  fill="#000"
-                />
-                <p>Atoms</p>
-              </a>
+              <Link href="/atoms">
+                <a>
+                  <AtomIcon 
+                    height={35}
+                    width={35}
+                    fill="#000"
+                  />
+                  <p>Atoms</p>
+                </a>
+              </Link>           
             </li>
             <li>
-              <a href="#">
-                {/*icon */}
-                <MoleculeIcon
-                  height={35}
-                  width={35}
-                  fill="#000"
-                />
-                <p>Molecule</p>
-              </a>
+              <Link href="/molecules">
+                <a>
+                  <MoleculeIcon
+                    height={35}
+                    width={35}
+                    fill="#000"
+                  />
+                  <p>Molecule</p>
+                </a>
+              </Link>                   
             </li>
             <li>
-              <a href="#">
-                {/*icon */}
-                <OrganismIcon 
-                  height={35}
-                  width={35}
-                  fill="#000"
-                />
-                <p>Organisms</p>
-              </a>
+              <Link href="/organisms">
+                <a>
+                  <OrganismIcon 
+                    height={35}
+                    width={35}
+                    fill="#000"
+                  />
+                  <p>Organisms</p>
+                </a>
+              </Link>                 
             </li>
             <li>
-              <a href="#">
-                {/*icon */}
-                <PageIcon
-                  height={35}
-                  width={35}
-                  fill="#000"
-                />
-                <p>Templates</p>
-              </a>
+              <Link href="/templates">
+                <a>
+                  <PageIcon
+                    height={35}
+                    width={35}
+                    fill="#000"
+                  />
+                  <p>Templates</p>
+                </a>
+              </Link>         
             </li>
             <li>
               <a href="#">

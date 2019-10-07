@@ -19,9 +19,6 @@ import { Waypoint } from 'react-waypoint';
 const moment = require('moment');
 
 const AppBackground = styled.div`
-  background: url(${BlueBackgroundSVG});
-  background-repeat: no-repeat;
-  background-size: 100% auto;
   /* Overflow hidden prevents collapsing margins, which causes an infurating error where the background and entire div is pushed down.*/
   overflow: hidden;
 `
@@ -276,4 +273,4 @@ class Home extends React.Component {
 //   }
 // }
 export default Home;
-export { ContentDiv };
+export { ContentDiv, AppBackground };
