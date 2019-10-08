@@ -18,7 +18,7 @@ class MyDocument extends Document {
     return (
       <html>
         <Head>
-          {this.props.styleTags}          
+          {this.props.styleTags}           
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWAvPfvYStM_QGVqo36vo3d2g3OOOEziY&libraries=places"></script>          
         </Head>
         <body className="sidebar-mini">

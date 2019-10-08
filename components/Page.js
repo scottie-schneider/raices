@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 // global styles to bump up z index of autocomplete 
 import { createGlobalStyle } from 'styled-components'
 // styled to bump up z index of autocomplete 
-const GlobalStyle = createGlobalStyle`
-  body {
-    .pac-container {
-      z-index: 1051 !important;
-    }
-    .modal {
-      background: rgba(0, 0, 0, 0.4);
-    }
-  }
-`
-
-import WrapperDiv from './WrapperDiv';
-import Meta from './Meta';
-
-
 const theme = {
   themeBlue: '#1867B5',
   blue: '#1867B5',
@@ -67,6 +52,41 @@ const theme = {
   // border radius
   borderRadius: '0.2857rem',
 }
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+      font-family: 'Fira Sans', sans-serif;    
+    }
+    html {
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Fira Sans', sans-serif; 
+    }
+    a {
+      text-decoration: none;
+      color: ${theme.black};
+    }
+    button {  font-family: 'Fira Sans', sans-serif;  }
+  body {
+    .pac-container {
+      z-index: 1051 !important;
+    }
+    .modal {
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+`
+
+import WrapperDiv from './WrapperDiv';
+import Meta from './Meta';
+
+
+
 const lightTheme = {
   blue: '#1d8cf8',
   purple: '#e14eca',

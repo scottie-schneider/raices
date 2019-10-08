@@ -5,6 +5,7 @@ const Meta = () => (
     <title>Raices.io</title>
     <link rel="manifest" href="/static/manifest.json" />    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet"></link>
     <meta name="theme-color" content="#72B340" />
     <meta
       name="description"

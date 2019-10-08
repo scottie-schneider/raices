@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import SearchComponent from './SearchComponent'
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Badge, Col } from 'reactstrap'
+import MediumCard from './styles/MediumCard'
+import SmallCard from './styles/SmallCard'
+
 import StarRatingComponent from './StarRatingComponent';
 
 const HomeVariation1Styled = styled.div`
@@ -12,100 +15,9 @@ const HomeVariation1Styled = styled.div`
   overflow-y: hidden;
   overflow-x: hidden;
 `
-const MediumCard = styled(Card)`
-  display: flex;
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  margin-left: 2em;
-  width: 200px;
-  height: 380px;
-  border: none;
-  background: transparent;
-  :first-child {
-    margin-left: 0 !important;
-  }
-  ::-webkit-scrollbar {    
-    display: none;
-  }
-  .card-title {
-    font-weight: bold;
-    font-size: 1em;
-    margin-bottom: 5px;
-    word-wrap: break-word;    
-    white-space: pre-wrap;
-  }
-  .card-body {
-    padding: 0;
-    margin-top: 10px;   
-  }
-  .card-subtitle {
-    font-size: .8em;
-    position: absolute;
-    bottom: 25px;
-    font-size: .8em;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
-  .badge.badge-success {
-    float: left;
-    clear: both;
-    margin-top: 1em;
-  }
-  img {
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 10px 10px 0 rgba(172,177,192,0.50);
-    background: none;
-  }
-`
 
-const SmallCard = styled(Card)`
-  display: inline-flex;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  margin-left: 2em;
-  width: 88px;
-  min-height: 160px;
-  border: none;
-  flex: 1;
-  :first-child {
-    margin-left: 0 !important;
-  }
-  ::-webkit-scrollbar {    
-    display: none;
-  }
-  .card-title {
-    font-weight: bold;
-    font-size: .8em;
-    margin-bottom: 5px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
-  .card-body {
-    padding: 0;
-    margin-top: 10px;    
-    p {
-      font-size: .8em;
-      position: absolute;
-      bottom: 0;    
-      margin-bottom: 0;      
-   }
-  }
-  .card-subtitle {
-    position: absolute;
-    bottom: 15px;
-    font-size: .8em;
-    margin-bottom: 5px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
-  img {
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 10px 10px 0 rgba(172,177,192,0.50);
-  }
-`
+
+
 
 const Outer = styled.div`
   overflow-x: scroll;

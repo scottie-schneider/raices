@@ -96,7 +96,7 @@ class Navbar extends Component {
               </Link>         
             </li>
             <li>
-              <a href="#">
+              <a href="/">
                 {/*icon */}
                 <PageIcon
                   height={35}
