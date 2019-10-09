@@ -4,20 +4,30 @@ import styled, { ThemeProvider } from 'styled-components';
 import { createGlobalStyle } from 'styled-components'
 // styled to bump up z index of autocomplete 
 const theme = {
-  themeBlue: '#1867B5',
-  blue: '#1867B5',
-  oldBrightBlue: '#1d8cf8',
-  purple: '#e14eca',
-  green: '#00bf9a',
-  red: '#fd5d93',
-  orange: '#ff8d72',
-  white: '#f5f6fa',
-  brightWhite: '#fff',
-  lightGrey: 'grey',
-  navBlue: '#1d253b',
-  brightBlue: '#1d8cf8',
-  linkNotHovered: 'rgba(255, 255, 255, 0.8)',
-  darkBackground: 'rgb(47, 52, 55)',
+  // colors
+  blue: '#3498DB',
+  green: '#2ECC71',
+  red: '#E74C3C',
+  orange: '#E67E22',
+  darkGrey: '#7F8C8D',
+  grey: '#95A5A6',
+  accentGrey: '#D3D9DD',
+  backgroundGrey: '#ECF0F1',
+  black: '#1E2227',
+  lowerPriorityText: '#42464C',
+  white: '#fff',
+  // colors - primary button
+  primaryButtonNormal: '#6EB43F',
+  primaryButtonPressed: '#3D7D13',
+  primaryButtonHover: '#4A8C1E',
+  //colors - floating blue button
+  floatingBlueButtonNormal: '#3498DB',
+  floatingBlueButtonPressed: '#207AB6',
+  floatingBlueButtonHover: '#3FAFFA',
+  // colors - floating grey button
+  floatingGreyButtonNormal: '#7F8C8D',
+  floatingGreyButtonPressed: '#484A4A',
+  floatingGreyButtonHover: '#626465',
   // forms
   naturalBorder: '1px solid rgb(252,254,255, .2)',
   inputValid: '#00f2c3',
