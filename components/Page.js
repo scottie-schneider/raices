@@ -28,6 +28,8 @@ const theme = {
   floatingGreyButtonNormal: '#7F8C8D',
   floatingGreyButtonPressed: '#484A4A',
   floatingGreyButtonHover: '#626465',
+  // Image Box Shadow Color
+  imageBoxShadow: "rgba(172, 177, 192, 50)",
   // forms
   naturalBorder: '1px solid rgb(252,254,255, .2)',
   inputValid: '#00f2c3',

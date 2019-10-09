@@ -10,14 +10,19 @@ import PrimaryButtonLarge from '../components/styles/PrimaryButtonLarge'
 import PrimaryButtonSmall from '../components/styles/PrimaryButtonSmall'
 import FloatingAddButtonLarge from '../components/styles/FloatingAddButtonLarge'
 import FloatingAddButtonSmall from '../components/styles/FloatingAddButtonSmall'
+
 // ICONS
 import PlusIcon from '../components/icons/PlusIcon'
-
+import PlayIcon from '../components/icons/PlayIcon'
 // INPUTS 
 import TextInput from '../components/styles/TextInput'
 import TextArea from '../components/styles/TextArea'
 import styled from 'styled-components'
 import StarRatingComponent from '../components/StarRatingComponent';
+
+// PHOTOS
+import Image from '../components/styles/Image'
+import CircularImage from '../components/styles/CircularImage'
 
 const AtomView = styled.div`
   min-height: 667px;
@@ -80,6 +85,57 @@ const Atoms = props => (
         <TextArea filled={false} error={false} disabled={false} value="Unfilled Input"/>
         <TextArea filled={false} error={true} disabled={false} value="Error"/>
         <TextArea filled={false} error={false} disabled={true} value="Disabled"/>
+        <br />
+        <h3>Images</h3>
+        <br />
+        <h4>200x250</h4>
+        <Image 
+          src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/352_Hall_St.jpg" 
+          round
+          height={250}
+          width={200}
+          shadow
+        />
+        <br />
+        <h4>88x88</h4>
+        <Image 
+          src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/352_Hall_St.jpg" 
+          round
+          height={88}
+          width={88}
+          shadow={false}
+        />
+        <h4>150x150 (agent card profile)</h4>
+        <Image 
+          src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/352_Hall_St.jpg" 
+          agent
+          height={150}
+          width={150}
+          shadow={false}
+        />
+        <h4>330x140</h4>
+        <Image 
+          src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/352_Hall_St.jpg" 
+          height={140}
+          width={330}
+          shadow={false}
+        />
+        <h4>62x62</h4>
+        <CircularImage 
+          src="https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485388/Raices/HomePhotos/352_Hall_St.jpg" 
+          height={62}
+          width={62}
+          shadow={false}
+        />
+        <h4>Video</h4>
+        <iframe 
+          width="342" 
+          height="200" 
+          src="https://www.youtube.com/embed/_4czG6OLoCI" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen 
+        />
       </ContentDiv>
       <Navbar />
     </AppBackground>
