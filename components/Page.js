@@ -78,6 +78,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
       font-family: 'Fira Sans', sans-serif; 
+      background-color: #F7F8FA;
     }
     a {
       text-decoration: none;
