@@ -91,13 +91,26 @@ const GlobalStyle = createGlobalStyle`
     }
     .modal {
       background: rgba(0, 0, 0, 0.4);
+    }  
+  }
+  .bottomNav {
+    display: none;
+  }
+  
+  @media(max-width: 700px){
+    .bottomNav {
+      display: flex;
+    }
+    .topNav {
+      display: none;
     }
   }
 `
 
 import WrapperDiv from './WrapperDiv';
 import Meta from './Meta';
-
+import WebNavbar from './WebNavbar'
+import Navbar from './Navbar'
 
 
 const lightTheme = {
@@ -158,6 +171,7 @@ class Page extends Component {
         <WrapperDiv>
         <GlobalStyle />
           <Meta />
+          <WebNavbar />
             {this.props.children}
         </WrapperDiv>
       </ThemeProvider>

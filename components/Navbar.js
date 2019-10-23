@@ -45,7 +45,7 @@ import MoleculeIcon from '../components/icons/MoleculeIcon';
 class Navbar extends Component {
   render() {
     return (
-      <StyledNav>
+      <StyledNav className="bottomNav">
           <ul>
             <li>
               <Link href="/atoms">

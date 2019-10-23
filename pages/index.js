@@ -240,7 +240,7 @@ class Home extends React.Component {
                 </li>
               </ol>
           </ContentDiv>
-          <Navbar />
+          <Navbar />        
         </AppBackground>
       </div>
     )
