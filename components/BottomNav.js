@@ -9,6 +9,8 @@ const StyledNav = styled.div`
   bottom: 0;
   margin: 0;
   width: 100%;
+  z-index: 3;
+  max-height: 56px;
   /* max-width: 450px; */
   background: #fff;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -38,11 +40,11 @@ const StyledNav = styled.div`
   }
 `
 // icons 
-import PageIcon from '../components/icons/PageIcon';
-import AtomIcon from '../components/icons/AtomIcon';
-import OrganismIcon from '../components/icons/OrganismIcon';
-import MoleculeIcon from '../components/icons/MoleculeIcon';
-class Navbar extends Component {
+import PageIcon from './icons/PageIcon';
+import AtomIcon from './icons/AtomIcon';
+import OrganismIcon from './icons/OrganismIcon';
+import MoleculeIcon from './icons/MoleculeIcon';
+class BottomNav extends Component {
   render() {
     return (
       <StyledNav className="bottomNav">
@@ -51,8 +53,8 @@ class Navbar extends Component {
               <Link href="/atoms">
                 <a>
                   <AtomIcon 
-                    height={35}
-                    width={35}
+                    height={25}
+                    width={25}
                     fill="#000"
                   />
                   <p>Atoms</p>
@@ -63,8 +65,8 @@ class Navbar extends Component {
               <Link href="/molecules">
                 <a>
                   <MoleculeIcon
-                    height={35}
-                    width={35}
+                    height={25}
+                    width={25}
                     fill="#000"
                   />
                   <p>Molecule</p>
@@ -75,8 +77,8 @@ class Navbar extends Component {
               <Link href="/organisms">
                 <a>
                   <OrganismIcon 
-                    height={35}
-                    width={35}
+                    height={25}
+                    width={25}
                     fill="#000"
                   />
                   <p>Organisms</p>
@@ -87,8 +89,8 @@ class Navbar extends Component {
               <Link href="/templates">
                 <a>
                   <PageIcon
-                    height={35}
-                    width={35}
+                    height={25}
+                    width={25}
                     fill="#000"
                   />
                   <p>Templates</p>
@@ -99,8 +101,8 @@ class Navbar extends Component {
               <a href="/">
                 {/*icon */}
                 <PageIcon
-                  height={35}
-                  width={35}
+                  height={25}
+                  width={25}
                   fill="#000"
                 />
                 <p>Pages</p>
@@ -111,4 +113,4 @@ class Navbar extends Component {
     )
   }
 }
-export default Navbar;
+export default BottomNav;

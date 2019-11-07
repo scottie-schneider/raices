@@ -1,5 +1,5 @@
-import { AppBackground, ContentDiv } from './index';
-import Navbar from '../components/Navbar';
+import { AppBackground } from './index';
+import Navbar from '../components/BottomNav';
 // TYPOGRAPHY - CARDS
 import MediumCard from '../components/styles/MediumCard'
 import SmallCard from '../components/styles/SmallCard'
@@ -53,7 +53,6 @@ class Atoms extends React.Component {
     return (
       <AtomView>
         <AppBackground>
-          <ContentDiv>
             {/* TYPOGRAPHY */}
             <h1>Typography (h1 element)</h1>
             <h2>H2</h2>
@@ -225,7 +224,6 @@ class Atoms extends React.Component {
               <ChatBubble className="owner">For sure it is, would love to get an appointment setup. When works for you? <span className="time">11:42am</span></ChatBubble>
               <ChatBubble className="partner">hey james, I’d love to see 352 Hall St.. Is it still on the market????<span className="time">1:21pm</span></ChatBubble>
             </ChatHolder>
-          </ContentDiv>
           <Navbar />
         </AppBackground>
       </AtomView>

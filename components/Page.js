@@ -94,15 +94,18 @@ const GlobalStyle = createGlobalStyle`
     }  
   }
   .bottomNav {
-    display: none;
+    display: none !important;
   }
   
   @media(max-width: 700px){
     .bottomNav {
-      display: flex;
+      display: flex !important;
     }
     .topNav {
-      display: none;
+      display: none !important;
+    }
+    .wrapper {
+      margin-bottom: 74px !important;
     }
   }
 `
@@ -110,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
 import WrapperDiv from './WrapperDiv';
 import Meta from './Meta';
 import WebNavbar from './WebNavbar'
-import Navbar from './Navbar'
+import BottomNav from './BottomNav'
 
 
 const lightTheme = {
@@ -168,10 +171,9 @@ class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>        
-        <WrapperDiv>
+        <WrapperDiv className="wrapper">
         <GlobalStyle />
           <Meta />
-          <WebNavbar />
             {this.props.children}
         </WrapperDiv>
       </ThemeProvider>

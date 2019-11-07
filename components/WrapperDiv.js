@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const WrapperDiv = styled.div`
   position: relative;
   top: 0;
-  height: 100%;
-  -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  height: 100vh;
+  /* -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -15,7 +15,7 @@ const WrapperDiv = styled.div`
     -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
-  }
+  } */
 `;
 
 export default WrapperDiv;

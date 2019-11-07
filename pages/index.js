@@ -3,15 +3,13 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components';
-import {Row, Col, Input, Badge} from 'reactstrap';
-import Navbar from '../components/Navbar';
+import {Badge} from 'reactstrap';
 import HomeVariation1 from '../components/HomeVariation1';
 import BlueBackgroundSVG from '../components/backgrounds/BlueBackgroundSVG.svg'
 import Items from '../components/Items';
 
 // bottom sheet for house
 import HouseSheet from '../components/HouseSheet';
-
 
 // waypoint
 import { Waypoint } from 'react-waypoint';
@@ -21,16 +19,9 @@ const moment = require('moment');
 const AppBackground = styled.div`
   /* Overflow hidden prevents collapsing margins, which causes an infurating error where the background and entire div is pushed down.*/
   overflow: hidden;
+  background-color: #fff;
 `
-const ContentDiv = styled.div`
-  width: auto!important;
-  overflow-x: hidden!important;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-bottom: 74px;
-  margin-top: 16px;
-  background: none;
-`
+
 const ScrollableWrapper = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
@@ -50,9 +41,6 @@ const Swipeable = styled(Badge)`
 const MonthElement = styled(Waypoint)`
   display: inline-block;
 `
-
-
-
 
 const SearchBar = props => (
   <div>Search bar</div>
@@ -172,7 +160,7 @@ class Home extends React.Component {
 	};
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <Items/>
          {/* swipeable sheet goes here for house */}
         <HouseSheet 
@@ -181,7 +169,6 @@ class Home extends React.Component {
         />
         <AppBackground>
           {/* <Header /> */}
-          <ContentDiv>
             <HomeVariation1 
               openBottomSheet={this.openBottomSheet}
             />                    
@@ -238,9 +225,7 @@ class Home extends React.Component {
                   Click logout and try to go to profile again. You'll get redirected to
                   the `/login` route.
                 </li>
-              </ol>
-          </ContentDiv>
-          <Navbar />        
+              </ol>      
         </AppBackground>
       </div>
     )
@@ -273,4 +258,4 @@ class Home extends React.Component {
 //   }
 // }
 export default Home;
-export { ContentDiv, AppBackground };
+export { AppBackground };

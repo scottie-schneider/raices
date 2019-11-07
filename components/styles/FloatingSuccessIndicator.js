@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FloatingAddButtonSmall = styled.button`
+const FloatingSuccessIndicator = styled.button`
   height: 48px;
   width: 48px;
   border-radius: 50%;
@@ -22,4 +22,4 @@ const FloatingAddButtonSmall = styled.button`
   }
 `
 
-export default FloatingAddButtonSmall;
+export default FloatingSuccessIndicator;
