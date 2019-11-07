@@ -7,6 +7,21 @@ import PrimaryButton from '../components/PrimaryButton';
 import SmallLeadCard from '../components/SmallLeadCard';
 
 const GridContainer = styled.div`
+ .bottomNav {
+    display: none !important;
+  }
+  
+  @media(max-width: 700px){
+    .bottomNav {
+      display: flex !important;
+    }
+    .topNav {
+      display: none !important;
+    }
+    .wrapper {
+      margin-bottom: 74px !important;
+    }
+  }
   .grid{
     overflow-x: hidden;
     grid-template-columns: 100%;
@@ -22,7 +37,7 @@ const GridContainer = styled.div`
 }
 
 /* Assign grid instructions to our parent grid container, mobile-first (hide the sidenav) */
-.grid-container {
+.grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 50px;
@@ -64,12 +79,11 @@ const GridContainer = styled.div`
 
 .sidenav {
   grid-area: sidenav;
-  display: flex;
-  flex-direction: column;
   height: 100%;
+  overflow-y: auto;
   width: 240px;
   position: fixed;
-  overflow-y: auto;
+  display: block;
   transform: translateX(-245px);
   transition: all .6s ease-in-out;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -271,7 +285,7 @@ const GridContainer = styled.div`
 /* Non-mobile styles, 750px breakpoint */
 @media only screen and (min-width: 46.875em) {
   /* Show the sidenav */
-  .grid-container {
+  .grid {
     grid-template-columns: 240px 1fr;
     grid-template-areas:
       "sidenav header"
@@ -296,9 +310,9 @@ const GridContainer = styled.div`
 /* Medium screens breakpoint (1050px) */
 @media only screen and (min-width: 65.625em) {
   /* Break out main cards into two columns */
-  .main-cards {
+  /* .main-cards {
     column-count: 2;
-  }
+  } */
 }
 `
 const ProfilePic = styled.div`
@@ -338,7 +352,7 @@ const ProfileTemplate = props => (
           />
         </header>
 
-        <aside class="sidenav">
+        <aside className="sidenav">
           <div class="sidenav__close-icon">
             <i class="fas fa-times sidenav__brand-close"></i>
           </div>
