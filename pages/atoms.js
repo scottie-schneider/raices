@@ -1,5 +1,5 @@
 import { AppBackground } from './index';
-import Navbar from '../components/BottomNav';
+import BottomNav from '../components/BottomNav';
 // TYPOGRAPHY - CARDS
 import MediumCard from '../components/styles/MediumCard'
 import SmallCard from '../components/styles/SmallCard'
@@ -224,7 +224,7 @@ class Atoms extends React.Component {
               <ChatBubble className="owner">For sure it is, would love to get an appointment setup. When works for you? <span className="time">11:42am</span></ChatBubble>
               <ChatBubble className="partner">hey james, I’d love to see 352 Hall St.. Is it still on the market????<span className="time">1:21pm</span></ChatBubble>
             </ChatHolder>
-          <Navbar />
+          <BottomNav />
         </AppBackground>
       </AtomView>
     )

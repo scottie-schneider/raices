@@ -1,11 +1,11 @@
 import { AppBackground } from './index';
-import Navbar from '../components/Navbar';
+import BottomNav from '../components/BottomNav';
 
 const Templates = props => (
   <div>
     <AppBackground>
         <p>Templates...</p>
-      <Navbar />
+      <BottomNav />
     </AppBackground>
   </div>
 );
