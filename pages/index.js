@@ -8,7 +8,7 @@ import HomeVariation1 from '../components/HomeVariation1';
 import BlueBackgroundSVG from '../components/backgrounds/BlueBackgroundSVG.svg'
 import Items from '../components/Items';
 // Product list test for Bit
-import ProductList from '@bit/scottie-schneider.raices.product-list';
+import ProductList from '@bit/scottie-schneider.raices.product-list'
 // bottom sheet for house
 import HouseSheet from '../components/HouseSheet';
 

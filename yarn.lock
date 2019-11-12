@@ -1148,10 +1148,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/scottie-schneider.raices.product-list@^0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/scottie-schneider.raices.product-list/-/scottie-schneider.raices.product-list-0.0.1.tgz#cbbe8a0c0ab2225f4f6cc95e14b45014f8c29303"
-  integrity sha1-y76KDAqyIl9PbMleFLRQFPjCkwM=
+"@bit/scottie-schneider.raices.product-list@^0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/scottie-schneider.raices.product-list/-/scottie-schneider.raices.product-list-0.0.3.tgz#14fcfe2e7778e4713594d191e6e08f6a0793f447"
+  integrity sha1-FPz+Lnd45HE1lNGR5uCPageT9Ec=
   dependencies:
     styled-components "^4.4.1"
 
