@@ -1,0 +1,19 @@
+{
+  "name": "@bit/scottie-schneider.raices.product-list",
+  "version": "0.0.3",
+  "homepage": "https://bit.dev/scottie-schneider/raices/product-list",
+  "main": "dist/index.js",
+  "dependencies": {
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.4"
+    }
+  }
+}
