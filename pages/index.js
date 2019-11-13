@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from '../components/Header';
+
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components';
 import {Badge} from 'reactstrap';
 import HomeVariation1 from '../components/HomeVariation1';
-import BlueBackgroundSVG from '../components/backgrounds/BlueBackgroundSVG.svg'
 import Items from '../components/Items';
 
 // bottom sheet for house
