@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@bit/scottie-schneider.raices.product-list": "^0.0.3",
     "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.4.4",
     "apollo-client": "^2.6.4",
@@ -37,7 +36,9 @@
     "webpack": "^4.41.0"
   },
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.4"
+    },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
   }

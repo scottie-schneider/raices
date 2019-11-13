@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 
 const AboutMeHolder = styled.div`
-  grid-area: about;
   p {
+    font-family: 'Fira Sans', sans-serif; 
     color: black;
   }
   .header {

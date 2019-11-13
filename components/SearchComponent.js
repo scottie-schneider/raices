@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import {Row, Col, Input, Container } from 'reactstrap';
 import MagnifyingGlassIcon from './icons/MagnifyingGlassIcon';
-import MapIcon from './icons/MapIcon';
+// import MapIcon from './icons/MapIcon';
 // Search bar Map Icon Holder
 const SearchHolder = styled.div`
   display: flex;  
@@ -86,11 +86,11 @@ class SearchComponent extends Component {
           </StyledCol>
           <StyledCol xs="2">
             <IconHolder>
-              <MapIcon 
+              {/* <MapIcon 
                 width={25}
                 height={25}
                 fill={'#000'}
-              />
+              /> */}
             </IconHolder>
           </StyledCol>
         </Row>

@@ -7,11 +7,11 @@ import {Badge} from 'reactstrap';
 import HomeVariation1 from '../components/HomeVariation1';
 import BlueBackgroundSVG from '../components/backgrounds/BlueBackgroundSVG.svg'
 import Items from '../components/Items';
-// Product list test for Bit
-import ProductList from '@bit/scottie-schneider.raices.product-list'
+
 // bottom sheet for house
 import HouseSheet from '../components/HouseSheet';
 
+import AgentActiveListings from '../components/AgentActiveListings'
 // waypoint
 import { Waypoint } from 'react-waypoint';
 // Moment, for time operations 
@@ -162,7 +162,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <ProductList />
+        <AgentActiveListings />
         <Items/>
          {/* swipeable sheet goes here for house */}
         <HouseSheet 
