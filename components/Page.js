@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 // global styles to bump up z index of autocomplete 
 import { createGlobalStyle } from 'styled-components'
+import GridContainer from './styles/GridContainer';
+
+import SlideLeftIcon from './icons/SlideLeftIcon'
+import SlideRightIcon from './icons/SlideRightIcon'
+
+import classNames from 'classnames';
+
+import BottomNavForm from '../components/BottomNavForm'
 // styled to bump up z index of autocomplete 
 const theme = {
   // colors
   blue: '#3498DB',
+  backgroundBlue: '#141C21',
   green: '#2ECC71',
   red: '#E74C3C',
   orange: '#E67E22',
@@ -148,8 +157,12 @@ class Page extends Component {
     color: "primary",
     navSelection: "dashboard",
     lightMode: false,
+    nav: true,
   }
 
+  nav = () => {
+		this.setState({ nav: !this.state.nav });
+  };
   toggleSidebar = () => {
     this.setState({
       sidebarOpened: !this.state.sidebarOpened
@@ -174,7 +187,53 @@ class Page extends Component {
         <WrapperDiv className="wrapper">
         <GlobalStyle />
           <Meta />
-            {this.props.children}
+          <GridContainer nav={this.state.nav}>
+            <div class="grid">
+              {/* Nav Menu Component */}
+              <aside className={classNames('sidenav')}>            
+                <ul class="sidenav__list">
+                  <li className="sidenav__list-item">Team</li>
+                  <li className="sidenav__list-item">Profile</li>
+                  <li className="sidenav__list-item">Add a Team</li>
+                  <li className="sidenav__list-item logout">Logout</li>
+                </ul>
+              </aside>
+              {/* End Nav Menu Component */}
+              {/* Nav Button Component */}
+              {
+                this.state.nav ? 
+                <div 
+                  className="navButton"
+                  onClick={this.nav}
+                >
+                  <SlideLeftIcon 
+                    height={'20px'} 
+                    width={'20px'}                
+                  /> 
+                </div>
+                : 
+                <div
+                  className="navButton"
+                  onClick={this.nav}
+                >
+                  <SlideRightIcon 
+                    height={'20px'} 
+                    width={'20px'}
+                    className="navButton"
+                  />
+                </div>
+              }
+              {/* End Nav Button Component */}
+              {/* Dashboard Component ie., the child */}
+              {this.props.children}                          
+              {/* End Dashboard Component */}
+              <footer class="footer">
+                <div class="footer__copyright">&copy; 2019</div>
+                <div class="footer__signature">Made with love by Scottie</div>
+              </footer>
+            </div>
+            <BottomNavForm />
+          </GridContainer>          
         </WrapperDiv>
       </ThemeProvider>
     )

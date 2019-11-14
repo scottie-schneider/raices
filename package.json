@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@wojtekmaj/react-daterange-picker": "^2.4.0",
     "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.4.4",
     "apollo-client": "^2.6.4",
