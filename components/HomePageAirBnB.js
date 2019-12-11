@@ -72,12 +72,13 @@ const HomePageStyle = styled.div`
     grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
-    width: 90%;    
+    width: 100vw;    
     margin: 0 auto;
     overflow: hidden;
   }
   @media (min-width: 768px) {
     .search-form-container {
+      width: 90%;
       grid-template-columns: 1fr 2fr;
       align-items: flex-start;
     }
