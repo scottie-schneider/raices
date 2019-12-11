@@ -71,6 +71,7 @@ const HomePageStyle = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
+    justify-content: center;
     width: 90%;    
     margin: 0 auto;
     overflow: hidden;
@@ -85,6 +86,7 @@ const HomePageStyle = styled.div`
     background-color: #fff;
     padding: 2rem 1.5rem 2rem 1.5rem;
     border-radius: 5px;
+    margin: 0 auto;
   }
   .search-form h1 {
     margin: 0 0 1rem 0;
