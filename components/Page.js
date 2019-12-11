@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 // global styles to bump up z index of autocomplete 
 import { createGlobalStyle } from 'styled-components'
+import Meta from './Meta';
 // /* ${dom.css()} */ (add this to global styles if it doesn't work)
 
 // styled to bump up z index of autocomplete 
@@ -44,17 +45,19 @@ const GlobalStyle = createGlobalStyle`
     }  
   }
 `
-import Meta from './Meta';
+const WrapperDiv = styled.div`
+  overflow: hidden;
+`
 
 class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>        
-        <div>
+        <WrapperDiv>
           <GlobalStyle />
           <Meta />          
           {this.props.children}
-        </div> 
+        </WrapperDiv> 
       </ThemeProvider>
     )
   }
