@@ -71,7 +71,7 @@ const HomePageStyle = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    width: 90%;    
+    width: 80%;    
     margin: 0 auto;
     overflow: hidden;
   }
