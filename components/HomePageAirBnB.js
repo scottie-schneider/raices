@@ -76,19 +76,25 @@ const HomePageStyle = styled.div`
     margin: 0 auto;
     overflow: hidden;
   }
-  @media (min-width: 768px) {
-    .search-form-container {
-      width: 90%;
-      grid-template-columns: 2fr 1fr;
-      align-items: flex-start;
-    }
-  }
   .search-form {
     background-color: #fff;
     padding: 2rem 1.5rem 2rem 1.5rem;
     border-radius: 5px;
     margin: 0 auto;
   }
+  @media (min-width: 768px) {
+    .search-form-container {
+      width: 90%;
+      grid-template-columns: 2fr 1fr;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-left: 1rem;
+    }
+    .search-form {
+      margin-left: 0;
+    } 
+  }
+  
   .search-form h1 {
     margin: 0 0 1rem 0;
   }
