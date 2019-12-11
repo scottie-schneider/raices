@@ -102,8 +102,16 @@ const AirBnBNav = (props) => (
       </div>
       <nav class="simple">
         <ul>
-            <li><a href="#">Dash</a></li>
-            <li><a href="#">Home</a></li>
+          <li>
+            <Link href="/">
+              <a>Dash</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/search">
+              <a>Search</a>
+            </Link>
+          </li>
             <li><a href="#">Agent</a></li>
             <li><a onClick={props.toggleMenu}>More</a></li>
         </ul>
