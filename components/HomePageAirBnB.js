@@ -79,7 +79,7 @@ const HomePageStyle = styled.div`
   @media (min-width: 768px) {
     .search-form-container {
       width: 90%;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 2fr 1fr;
       align-items: flex-start;
     }
   }
