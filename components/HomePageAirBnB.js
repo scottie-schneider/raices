@@ -72,7 +72,6 @@ const HomePageStyle = styled.div`
     grid-template-columns: 1fr;
     align-items: center;
     width: 90%;    
-    min-width: 200px;
     margin: 0 auto;
   }
   @media (min-width: 768px) {
@@ -132,7 +131,7 @@ const HomePageStyle = styled.div`
     padding: .8rem;
     border: 1px solid #e1e1e1;
     background-color: white;
-    overflow: hidden;
+    overflow: hidden !important;
   }
   .submit {
     grid-column: 2 / 3;
