@@ -24,6 +24,8 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       font-family: 'Fira Sans', sans-serif; 
       background-color: #F7F8FA;
+      width: auto!important; 
+      overflow-x: hidden!important
     }
     body.active {
       overflow: hidden;
