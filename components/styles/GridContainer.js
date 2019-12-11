@@ -14,7 +14,11 @@ const GridContainer = styled.div`
     svg {
       justify-self: center;
       align-self: center;
+      color: white;
     }
+  }
+  svg {
+    color: white;
   }
   /* Modifications for Date Range Picker */
   .react-daterange-picker {
