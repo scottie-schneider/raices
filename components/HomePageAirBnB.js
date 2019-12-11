@@ -73,6 +73,7 @@ const HomePageStyle = styled.div`
     align-items: center;
     width: 90%;    
     margin: 0 auto;
+    overflow: hidden;
   }
   @media (min-width: 768px) {
     .search-form-container {
