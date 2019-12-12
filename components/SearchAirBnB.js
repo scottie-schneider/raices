@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown as falCaretDown } from '@fortawesome/pro-regular-svg-icons'
 import { faSearch as farSearch } from '@fortawesome/pro-regular-svg-icons'
 import classnames from "classnames";
-import debounce from "lodash.debounce";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Ring } from "react-awesome-spinners";
 
 // styles
@@ -48,6 +48,36 @@ class SearchAirBnB extends Component {
       }
     ]
   }
+  fetchMoreData = () => {
+    // a fake async api call like which sends
+    // 20 more records in 1.5 secs
+    const newArr = [{
+      img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
+      desc: "1 room in Los Angeles",
+      title: "1 room, downtown LA",
+      price: "$340,043"
+    },{
+      img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
+      desc: "1 room in Los Angeles",
+      title: "1 room, downtown LA",
+      price: "$340,043"
+    },{
+      img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
+      desc: "1 room in Los Angeles",
+      title: "1 room, downtown LA",
+      price: "$340,043"
+    },{
+      img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
+      desc: "1 room in Los Angeles",
+      title: "1 room, downtown LA",
+      price: "$340,043"
+    }]
+    setTimeout(() => {
+      this.setState(prevState => ({
+        cards: [...prevState.cards, ...newArr]             
+      }));  
+    }, 1500);
+  };
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -96,46 +126,6 @@ class SearchAirBnB extends Component {
       prevScrollpos: currentScrollPos,
       visible
     });
-    window.onscroll = debounce(() => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
-      ) {
-        // Do awesome stuff like loading more content!
-        // Append 4 new array elements 
-        const newArr = [{
-          img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
-          desc: "1 room in Los Angeles",
-          title: "1 room, downtown LA",
-          price: "$340,043"
-        },{
-          img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
-          desc: "1 room in Los Angeles",
-          title: "1 room, downtown LA",
-          price: "$340,043"
-        },{
-          img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
-          desc: "1 room in Los Angeles",
-          title: "1 room, downtown LA",
-          price: "$340,043"
-        },{
-          img: "https://res.cloudinary.com/dvqw5uhrr/image/upload/q_auto/v1575420822/Raices/Apartment%20%28samples%29/apartment4.jpg",
-          desc: "1 room in Los Angeles",
-          title: "1 room, downtown LA",
-          price: "$340,043"
-        }]
-        // check for loading, check for now items remaining
-        if(this.state.loading == false){
-          this.setState({loading: true})
-          setTimeout(() => {
-            this.setState(prevState => ({
-              cards: [...prevState.cards, ...newArr],
-              loading: false
-            }));    
-          }, 3000);
-        }
-      }
-    }, 100);
   };
   
   render () {
@@ -204,8 +194,13 @@ class SearchAirBnB extends Component {
         </FilterButtons>
         <MainStyle search>
           <CardContainer>
-            <h2>Unique homes for your next trip</h2>      
-            <div class="cards-container">  
+            <h2>Unique homes for your next trip</h2>
+            <InfiniteScroll
+              dataLength={this.state.cards.length}
+              next={this.fetchMoreData}
+              hasMore={true}
+              loader={<div className="loading"><Ring/></div>}
+            >
               {this.state.cards.map((card, index) => (
                   <div className="card home">
                     <img src={card.img} alt=""/>
@@ -219,9 +214,8 @@ class SearchAirBnB extends Component {
                       <p className="price">{card.price}</p>
                     </div>
                   </div> 
-              ))}                            
-            </div>
-            {this.state.loading ? <div className="loading"><Ring/></div>: null}         
+              ))}     
+            </InfiniteScroll>      
           </CardContainer>
       </MainStyle>   
     </SearchPageStyle>

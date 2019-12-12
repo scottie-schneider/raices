@@ -28,11 +28,11 @@ const SearchPageStyle = styled.div`
   /* End Page Styles */
   /* Search Page Style */
   .searchPage {
-  height: 100%;
-  min-height: 700px;
-  background-color: #fff;        
-  display: grid;
-  grid-template-rows: 150px auto;
+    height: 100%;
+    min-height: 700px;
+    background-color: #fff;        
+    display: grid;
+    grid-template-rows: 150px auto;
   }
 `
 
