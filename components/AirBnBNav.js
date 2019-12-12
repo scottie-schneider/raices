@@ -17,7 +17,7 @@ Router.onRouteChangeError = () => {
 };
 
 const PortfolioNavStyle = styled.div`
-  z-index: 10;
+  z-index: 60;
   .header-portfolio-nav {
     display: none;
   }

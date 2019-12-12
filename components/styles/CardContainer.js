@@ -5,6 +5,7 @@ const CardContainer = styled.section`
   margin: 0 auto;
   z-index: 0;
   position: relative;
+  overflow-y: auto;
   .loading {
     display: flex;
     justify-content: center;
