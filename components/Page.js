@@ -26,7 +26,12 @@ const GlobalStyle = createGlobalStyle`
       font-family: 'Fira Sans', sans-serif; 
       background-color: #F7F8FA;
       width: auto!important; 
-      overflow-x: hidden!important
+      overflow-x: hidden!important;
+      *{
+        &::-webkit-scrollbar { width: 0 !important }
+        overflow: -moz-scrollbars-none !important;
+        -ms-overflow-style: none !important;
+      }
     }
     body.active {
       overflow: hidden;

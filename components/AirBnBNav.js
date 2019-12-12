@@ -48,7 +48,7 @@ const PortfolioNavStyle = styled.div`
       bottom: 0;
       margin: 0;
       width: 100%;
-      z-index: 3;
+      z-index: 60;
       max-height: 56px;
     }
   }
