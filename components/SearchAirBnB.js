@@ -30,6 +30,8 @@ import MainStyle from './styles/MainStyle';
 
 // dropdown and filter popups 
 const PopUp = styled.div`
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 2000 !important;
   position: fixed !important;
   top: 0px !important;
@@ -38,7 +40,7 @@ const PopUp = styled.div`
   left: 0px !important;
   background-color: #fff;
   height: 100vh;
-  width: 100vw;
+  width: 100vw;  
   .header {
     width: 100%;
     height: 50px;
@@ -61,15 +63,65 @@ const PopUp = styled.div`
   .filters {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
     section {
-      display: flex;
+      display: block;
       flex-direction: column;
       border-bottom: 1px solid lightgrey;
-      padding: 0 .5rem 0 .5rem;
+      padding: 0 .5rem 2rem .5rem;
+      width: 90%;  
+      margin: auto;    
       /* Slider */
+      .sliderHolder {
+        margin: 1rem auto;
+        padding: 0 1rem 0 1rem;
+        width: 100%;
+        height: 60px;
+      }
+      .priceInputs {             
+        display: grid;
+        align-items: center;
+        justify-content: space-between;        
+        overflow: hidden;      
+        max-width: 100%;  
+        margin-top: 28px;
+        grid-template-columns: 1fr 1rem 1fr;        
+      }
+      .priceInput {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        width: 100%;
+        height: 56px;
+        cursor: text;      
+        margin: 0;
+      }
+      .spacer {
+        margin: 8px;
+        text-align: center;
+        height: 1rem;
+        display: flex;
+        justify-content: center;
+      }
       input {
         box-shadow: 0;
+        flex: 1;
         outline: 0;
+        border-radius: 8px;                     
+        width: 100%;
+      }
+      label {
+        position: absolute;
+        top: .5rem;
+        left: .5rem;
+        font-size: .7rem;
+      }
+      .dollar {
+        position: absolute;
+        top: 1.7rem;
+        left: .5rem;
+        font-size: .9rem;
       }
       .price-slider {
         width: 300px;
@@ -86,8 +138,9 @@ const PopUp = styled.div`
       }
       input[type=number] {
         border: 1px solid #ddd;
-        text-align: center;
-        font-size: 1.6em;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        font-size: 1em;
         -moz-appearance: textfield;
       }
       input[type=number]::-webkit-outer-spin-button,
@@ -374,60 +427,80 @@ class SearchAirBnB extends Component {
             </div>
           </section>
           <section>
-            Slider
-            {this.state.values[0]}
-            {this.state.values[1]}
-            <div style={{ margin: "10%", height: 120, width: "80%" }}>
-        <Slider
-          mode={2}
-          step={1}
-          domain={domain}
-          rootStyle={sliderStyle}          
-          onChange={this.onChange}
-          values={this.state.values}
-        >
-          <Rail>
-            {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
-          </Rail>
-          <Handles>
-            {({ handles, getHandleProps }) => (
-              <div className="slider-handles">
-                {handles.map(handle => (
-                  <Handle
-                    key={handle.id}
-                    handle={handle}
-                    domain={domain}
-                    getHandleProps={getHandleProps}
-                  />
-                ))}
+            <h3>Price</h3>
+            <h4>The average home price is $245,000</h4>            
+            <div className="sliderHolder">
+              <Slider
+                mode={2}
+                step={1}
+                domain={domain}
+                rootStyle={sliderStyle}          
+                onChange={this.onChange}
+                values={this.state.values}
+              >
+                <Rail>
+                  {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
+                </Rail>
+                <Handles>
+                  {({ handles, getHandleProps }) => (
+                    <div className="slider-handles">
+                      {handles.map(handle => (
+                        <Handle
+                          key={handle.id}
+                          handle={handle}
+                          domain={domain}
+                          getHandleProps={getHandleProps}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </Handles>
+                <Tracks left={false} right={false}>
+                  {({ tracks, getTrackProps }) => (
+                    <div className="slider-tracks">
+                      {tracks.map(({ id, source, target }) => (
+                        <Track
+                          key={id}
+                          source={source}
+                          target={target}
+                          getTrackProps={getTrackProps}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </Tracks>
+                <Ticks count={5}>
+                  {({ ticks }) => (
+                    <div className="slider-ticks">
+                      {ticks.map(tick => (
+                        <Tick key={tick.id} tick={tick} count={ticks.length} />
+                      ))}
+                    </div>
+                  )}
+                </Ticks>
+              </Slider>
+            </div>
+            <div className="priceInputs">
+              <div className="priceInput">
+                <label for="minimumPrice">Minimum Price</label>
+                <div className="dollar">$</div>
+                <input type="number"
+                  id="minimumPrice"               
+                  value={this.state.values[0]}
+                />
               </div>
-            )}
-          </Handles>
-          <Tracks left={false} right={false}>
-            {({ tracks, getTrackProps }) => (
-              <div className="slider-tracks">
-                {tracks.map(({ id, source, target }) => (
-                  <Track
-                    key={id}
-                    source={source}
-                    target={target}
-                    getTrackProps={getTrackProps}
-                  />
-                ))}
+              <div className="spacer">
+                <span>-</span>
               </div>
-            )}
-          </Tracks>
-          <Ticks count={5}>
-            {({ ticks }) => (
-              <div className="slider-ticks">
-                {ticks.map(tick => (
-                  <Tick key={tick.id} tick={tick} count={ticks.length} />
-                ))}
+              <div className="priceInput">
+                <label for="maximumPrice">Maximum Price</label>
+                <div className="dollar">$</div>
+                <input type="number" 
+                  id="maximumPrice"
+                  value={this.state.values[1]}
+                />
               </div>
-            )}
-          </Ticks>
-        </Slider>
-      </div>
+            </div>
           </section>
         </div>
       </PopUp> 
@@ -497,6 +570,7 @@ class SearchAirBnB extends Component {
           <CardContainer>
             <h2>Unique homes for your next trip</h2>
             <InfiniteScroll
+              className="cards-container"
               dataLength={this.state.cards.length}
               next={this.fetchMoreData}
               hasMore={true}
@@ -516,7 +590,7 @@ class SearchAirBnB extends Component {
                     </div>
                   </div> 
               ))}     
-            </InfiniteScroll>      
+            </InfiniteScroll>    
           </CardContainer>
       </MainStyle>   
     </SearchPageStyle>
