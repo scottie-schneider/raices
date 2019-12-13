@@ -8,6 +8,17 @@ import classnames from "classnames";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Ring } from "react-awesome-spinners";
 
+// slider bar 
+import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
+import { SliderRail, Handle, Track, Tick } from "./components"; // example render components - source below
+const sliderStyle = {
+  position: "relative",
+  width: "100%"
+};
+
+const domain = [100000, 500000];
+const defaultValues = [100000, 200000];
+
 // styles
 import TopDropDownMenu from './styles/TopDropDownMenu';
 import FilterButtons from './styles/FilterButtons';
@@ -16,6 +27,188 @@ import SearchBar from './styles/SearchBar';
 import SearchBarHeader from './styles/SearchBarHeader';
 import CardContainer from './styles/CardContainer';
 import MainStyle from './styles/MainStyle';
+
+// dropdown and filter popups 
+const PopUp = styled.div`
+  z-index: 2000 !important;
+  position: fixed !important;
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+  .header {
+    width: 100%;
+    height: 50px;
+    border-bottom: .5px solid lightgrey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: .5rem 1rem .5rem 1rem;
+    .close {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      outline: none;
+    }
+    .clear:hover {
+      text-decoration: underline;
+    }
+  }
+  .filters {
+    display: flex;
+    flex-direction: column;
+    section {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid lightgrey;
+      padding: 0 .5rem 0 .5rem;
+      /* Slider */
+      input {
+        box-shadow: 0;
+        outline: 0;
+      }
+      .price-slider {
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        position: relative;
+        height: 6em;
+      }
+      .price-slider svg,
+      .price-slider input[type=range] {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      input[type=number] {
+        border: 1px solid #ddd;
+        text-align: center;
+        font-size: 1.6em;
+        -moz-appearance: textfield;
+      }
+      input[type=number]::-webkit-outer-spin-button,
+      input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      input[type=number]:invalid,
+      input[type=number]:out-of-range {
+        border: 2px solid #e60023;
+      }
+      input[type=range] {
+        -webkit-appearance: none;
+        width: 100%;
+      }
+      input[type=range]:focus {
+        outline: none;
+      }
+      input[type=range]:focus::-webkit-slider-runnable-track {
+        background: #1da1f2;
+      }
+      input[type=range]:focus::-ms-fill-lower {
+        background: #1da1f2;
+      }
+      input[type=range]:focus::-ms-fill-upper {
+        background: #1da1f2;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: #1da1f2;
+        border-radius: 1px;
+        box-shadow: none;
+        border: 0;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 0px #000;
+        border: 1px solid #1da1f2;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: #a1d0ff;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7px;
+      }
+      input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: #1da1f2;
+        border-radius: 1px;
+        box-shadow: none;
+        border: 0;
+      }
+      input[type=range]::-moz-range-thumb {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 0px #000;
+        border: 1px solid #1da1f2;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: #a1d0ff;
+        cursor: pointer;
+      }
+      input[type=range]::-ms-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+      input[type=range]::-ms-fill-lower,
+      input[type=range]::-ms-fill-upper {
+        background: #1da1f2;
+        border-radius: 1px;
+        box-shadow: none;
+        border: 0;
+      }
+      input[type=range]::-ms-thumb {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0px 0px 0px #000;
+        border: 1px solid #1da1f2;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: #a1d0ff;
+        cursor: pointer;
+      }
+      /* End Slider */
+      .category {
+        display: flex;
+        border: 1px solid red;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        .selectors {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 125px;
+          border: 1px solid blue;
+          button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 1px solid lightgrey;
+          }
+        }
+      }
+    }
+  }
+`;
 
 class SearchAirBnB extends Component {
   state = {
@@ -26,6 +219,8 @@ class SearchAirBnB extends Component {
     visible: true,
     searchFocused: false,
     loading: false,
+    filterPopUp: false,
+    values: defaultValues,
     // only to replicate the loading of new cards
     cards: [
       {
@@ -127,11 +322,117 @@ class SearchAirBnB extends Component {
       visible
     });
   };
-  
+  filterPopUp = (type) => {
+    // show popup
+    this.setState({ filterPopUp: true })
+    // set state based off type (price, rooms, filters etc)
+  }
+  closeFilterPopUp = () => {
+    this.setState({ filterPopUp: false })
+  }
+  onChange = values => {
+    this.setState({ values });
+  };
   render () {
     return (
       <SearchPageStyle active={this.state.topMenu === 'active' ? true : null}>
       <AirBnBNav toggleMenu={this.toggleMenu}/> 
+      {this.state.filterPopUp ? 
+      <PopUp>
+        <div className="header">
+          <button 
+            className="close"
+            onClick={this.closeFilterPopUp}
+          >
+            X
+          </button>
+          <p 
+            className="clear"            
+          >
+            Clear
+          </p>
+        </div>
+        <div className="filters">
+          <section>
+            <h3>Rooms</h3>
+            <h4>Select the number of rooms you'd like</h4>
+            <div className="category">
+              <p>Beds</p>
+              <div className="selectors">
+                <button className="minus">-</button>
+                <p>0</p>
+                <button className="plus">+</button>
+              </div>
+            </div>
+            <div className="category">
+              <p>Baths</p>
+              <div className="selectors">
+                <button className="minus">-</button>
+                <p>0</p>
+                <button className="plus">+</button>
+              </div>
+            </div>
+          </section>
+          <section>
+            Slider
+            {this.state.values[0]}
+            {this.state.values[1]}
+            <div style={{ margin: "10%", height: 120, width: "80%" }}>
+        <Slider
+          mode={2}
+          step={1}
+          domain={domain}
+          rootStyle={sliderStyle}          
+          onChange={this.onChange}
+          values={this.state.values}
+        >
+          <Rail>
+            {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
+          </Rail>
+          <Handles>
+            {({ handles, getHandleProps }) => (
+              <div className="slider-handles">
+                {handles.map(handle => (
+                  <Handle
+                    key={handle.id}
+                    handle={handle}
+                    domain={domain}
+                    getHandleProps={getHandleProps}
+                  />
+                ))}
+              </div>
+            )}
+          </Handles>
+          <Tracks left={false} right={false}>
+            {({ tracks, getTrackProps }) => (
+              <div className="slider-tracks">
+                {tracks.map(({ id, source, target }) => (
+                  <Track
+                    key={id}
+                    source={source}
+                    target={target}
+                    getTrackProps={getTrackProps}
+                  />
+                ))}
+              </div>
+            )}
+          </Tracks>
+          <Ticks count={5}>
+            {({ ticks }) => (
+              <div className="slider-ticks">
+                {ticks.map(tick => (
+                  <Tick key={tick.id} tick={tick} count={ticks.length} />
+                ))}
+              </div>
+            )}
+          </Ticks>
+        </Slider>
+      </div>
+          </section>
+        </div>
+      </PopUp> 
+        : 
+      null}
         {/* The Search Bar Header */}
         <SearchBarHeader>
           <div
@@ -187,12 +488,12 @@ class SearchAirBnB extends Component {
         <FilterButtons visible={this.state.visible}>
           <div 
           className={classnames("buttonContainer")}>
-            <button>Price</button>
-            <button>Rooms</button>
-            <button>Filters</button>
+            <button onClick={() => this.filterPopUp("price")}>Price</button>
+            <button onClick={() => this.filterPopUp("rooms")}>Rooms</button>
+            <button onClick={() => this.filterPopUp("filters")}>Filters</button>
           </div>
         </FilterButtons>
-        <MainStyle search>
+        <MainStyle search>      
           <CardContainer>
             <h2>Unique homes for your next trip</h2>
             <InfiniteScroll
