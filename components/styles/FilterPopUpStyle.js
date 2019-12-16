@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const FilterPopUp = styled.div`
+const FilterPopUpStyle = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 2000 !important;
@@ -450,4 +450,4 @@ const FilterPopUp = styled.div`
   /* End Footer */
 `;
 
-export default FilterPopUp;
+export default FilterPopUpStyle;
