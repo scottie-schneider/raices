@@ -18,6 +18,7 @@ const sliderStyle = {
 
 const domain = [100000, 500000];
 const defaultValues = [100000, 200000];
+// end slider bar
 
 // styles
 import TopDropDownMenu from './styles/TopDropDownMenu';
@@ -27,241 +28,8 @@ import SearchBar from './styles/SearchBar';
 import SearchBarHeader from './styles/SearchBarHeader';
 import CardContainer from './styles/CardContainer';
 import MainStyle from './styles/MainStyle';
+import FilterPopUp from './styles/FilterPopUp'
 
-// dropdown and filter popups 
-const PopUp = styled.div`
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 2000 !important;
-  position: fixed !important;
-  top: 0px !important;
-  right: 0px !important;
-  bottom: 0px !important;
-  left: 0px !important;
-  background-color: #fff;
-  height: 100vh;
-  width: 100vw;  
-  .header {
-    width: 100%;
-    height: 50px;
-    border-bottom: .5px solid lightgrey;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding: .5rem 1rem .5rem 1rem;
-    .close {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      outline: none;
-    }
-    .clear:hover {
-      text-decoration: underline;
-    }
-  }
-  .filters {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3rem;
-    section {
-      display: block;
-      flex-direction: column;
-      border-bottom: 1px solid lightgrey;
-      padding: 0 .5rem 2rem .5rem;
-      width: 90%;  
-      margin: auto;    
-      /* Slider */
-      .sliderHolder {
-        margin: 1rem auto;
-        padding: 0 1rem 0 1rem;
-        width: 100%;
-        height: 60px;
-      }
-      .priceInputs {             
-        display: grid;
-        align-items: center;
-        justify-content: space-between;        
-        overflow: hidden;      
-        max-width: 100%;  
-        margin-top: 28px;
-        grid-template-columns: 1fr 1rem 1fr;        
-      }
-      .priceInput {
-        position: relative;
-        display: flex;
-        min-width: 0;
-        width: 100%;
-        height: 56px;
-        cursor: text;      
-        margin: 0;
-      }
-      .spacer {
-        margin: 8px;
-        text-align: center;
-        height: 1rem;
-        display: flex;
-        justify-content: center;
-      }
-      input {
-        box-shadow: 0;
-        flex: 1;
-        outline: 0;
-        border-radius: 8px;                     
-        width: 100%;
-      }
-      label {
-        position: absolute;
-        top: .5rem;
-        left: .5rem;
-        font-size: .7rem;
-      }
-      .dollar {
-        position: absolute;
-        top: 1.7rem;
-        left: .5rem;
-        font-size: .9rem;
-      }
-      .price-slider {
-        width: 300px;
-        margin: auto;
-        text-align: center;
-        position: relative;
-        height: 6em;
-      }
-      .price-slider svg,
-      .price-slider input[type=range] {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-      }
-      input[type=number] {
-        border: 1px solid #ddd;
-        padding-left: 1rem;
-        padding-top: 1rem;
-        font-size: 1em;
-        -moz-appearance: textfield;
-      }
-      input[type=number]::-webkit-outer-spin-button,
-      input[type=number]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-      }
-      input[type=number]:invalid,
-      input[type=number]:out-of-range {
-        border: 2px solid #e60023;
-      }
-      input[type=range] {
-        -webkit-appearance: none;
-        width: 100%;
-      }
-      input[type=range]:focus {
-        outline: none;
-      }
-      input[type=range]:focus::-webkit-slider-runnable-track {
-        background: #1da1f2;
-      }
-      input[type=range]:focus::-ms-fill-lower {
-        background: #1da1f2;
-      }
-      input[type=range]:focus::-ms-fill-upper {
-        background: #1da1f2;
-      }
-      input[type=range]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 5px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: #1da1f2;
-        border-radius: 1px;
-        box-shadow: none;
-        border: 0;
-      }
-      input[type=range]::-webkit-slider-thumb {
-        z-index: 2;
-        position: relative;
-        box-shadow: 0px 0px 0px #000;
-        border: 1px solid #1da1f2;
-        height: 18px;
-        width: 18px;
-        border-radius: 25px;
-        background: #a1d0ff;
-        cursor: pointer;
-        -webkit-appearance: none;
-        margin-top: -7px;
-      }
-      input[type=range]::-moz-range-track {
-        width: 100%;
-        height: 5px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: #1da1f2;
-        border-radius: 1px;
-        box-shadow: none;
-        border: 0;
-      }
-      input[type=range]::-moz-range-thumb {
-        z-index: 2;
-        position: relative;
-        box-shadow: 0px 0px 0px #000;
-        border: 1px solid #1da1f2;
-        height: 18px;
-        width: 18px;
-        border-radius: 25px;
-        background: #a1d0ff;
-        cursor: pointer;
-      }
-      input[type=range]::-ms-track {
-        width: 100%;
-        height: 5px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: transparent;
-        border-color: transparent;
-        color: transparent;
-      }
-      input[type=range]::-ms-fill-lower,
-      input[type=range]::-ms-fill-upper {
-        background: #1da1f2;
-        border-radius: 1px;
-        box-shadow: none;
-        border: 0;
-      }
-      input[type=range]::-ms-thumb {
-        z-index: 2;
-        position: relative;
-        box-shadow: 0px 0px 0px #000;
-        border: 1px solid #1da1f2;
-        height: 18px;
-        width: 18px;
-        border-radius: 25px;
-        background: #a1d0ff;
-        cursor: pointer;
-      }
-      /* End Slider */
-      .category {
-        display: flex;
-        border: 1px solid red;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-        .selectors {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 125px;
-          border: 1px solid blue;
-          button {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: transparent;
-            border: 1px solid lightgrey;
-          }
-        }
-      }
-    }
-  }
-`;
 
 class SearchAirBnB extends Component {
   state = {
@@ -294,7 +62,9 @@ class SearchAirBnB extends Component {
         title: "1 room, downtown LA",
         price: "$340,043"
       }
-    ]
+    ],
+    // Accordion states
+    amenitiesOpen: false,
   }
   fetchMoreData = () => {
     // a fake async api call like which sends
@@ -391,7 +161,7 @@ class SearchAirBnB extends Component {
       <SearchPageStyle active={this.state.topMenu === 'active' ? true : null}>
       <AirBnBNav toggleMenu={this.toggleMenu}/> 
       {this.state.filterPopUp ? 
-      <PopUp>
+      <FilterPopUp>
         <div className="header">
           <button 
             className="close"
@@ -406,6 +176,30 @@ class SearchAirBnB extends Component {
           </p>
         </div>
         <div className="filters">
+          {/* Type */}
+          <section>
+            <h3>Type</h3>
+            <h4>Would you like to buy, or rent?</h4>
+            <div className="category">
+              <p>Buy</p>
+              <div className="selectors">
+                <label class="switchButton">
+                  <input type="checkbox"/>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div className="category">
+              <p>Rent</p>
+              <div className="selectors">
+                <label class="switchButton">
+                  <input type="checkbox"/>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+          </section>
+          {/* Rooms */}
           <section>
             <h3>Rooms</h3>
             <h4>Select the number of rooms you'd like</h4>
@@ -426,6 +220,7 @@ class SearchAirBnB extends Component {
               </div>
             </div>
           </section>
+          {/* Price */}
           <section>
             <h3>Price</h3>
             <h4>The average home price is $245,000</h4>            
@@ -482,7 +277,7 @@ class SearchAirBnB extends Component {
             </div>
             <div className="priceInputs">
               <div className="priceInput">
-                <label for="minimumPrice">Minimum Price</label>
+                <label className="label" for="minimumPrice">Minimum Price</label>
                 <div className="dollar">$</div>
                 <input type="number"
                   id="minimumPrice"               
@@ -493,7 +288,7 @@ class SearchAirBnB extends Component {
                 <span>-</span>
               </div>
               <div className="priceInput">
-                <label for="maximumPrice">Maximum Price</label>
+                <label className="label" for="maximumPrice">Maximum Price</label>
                 <div className="dollar">$</div>
                 <input type="number" 
                   id="maximumPrice"
@@ -502,8 +297,88 @@ class SearchAirBnB extends Component {
               </div>
             </div>
           </section>
+          {/* Home Type Checkboxes */}
+          <section>
+            <h3>Home Type</h3>
+            <h4>Select the type of homes you'd like</h4>
+            <div className="category checkbox">
+              <label class="checkboxContainer">Houses
+                <input type="checkbox" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+              <label class="checkboxContainer">Manufactured
+                <input type="checkbox" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+              <label class="checkboxContainer">Condos
+                <input type="checkbox" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+              <label class="checkboxContainer">Apartments
+                <input type="checkbox" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+              <label class="checkboxContainer">Lots/Land 
+                <input type="checkbox" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+              <label class="checkboxContainer">Townhomes
+                <input type="checkbox" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+            </div>       
+          </section>
+          {/* Expandable Section */}
+          <section className="accordion">
+            <h3>Amenities</h3>
+            <h4>Select the amenities you'd like</h4>
+            <div className="category checkbox">
+                <label class="checkboxContainer">Heating
+                  <input type="checkbox" checked="checked"/>
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkboxContainer">Air Conditioning
+                  <input type="checkbox" checked="checked"/>
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkboxContainer">Washer
+                  <input type="checkbox" checked="checked"/>
+                  <span class="checkmark"></span>
+                </label>
+                <label class="checkboxContainer">Dryer
+                  <input type="checkbox" checked="checked"/>
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+                {
+                  this.state.amenitiesOpen ? 
+                  <div className="category checkbox">
+                    <label class="checkboxContainer">Waterfront
+                    <input type="checkbox" checked="checked"/>
+                    <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">Manufactured
+                      <input type="checkbox" checked="checked"/>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">Condos
+                      <input type="checkbox" checked="checked"/>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">Apartments
+                      <input type="checkbox" checked="checked"/>
+                      <span class="checkmark"></span>
+                    </label>
+                  </div> 
+                  : null
+                }              
+              <p onClick={() => this.setState({ amenitiesOpen: !this.state.amenitiesOpen})}>Show {this.state.amenitiesOpen ? 'less' : 'all'}</p>
+          </section>
+          <footer>
+            <button>Show 300+ homes</button>
+          </footer>
         </div>
-      </PopUp> 
+      </FilterPopUp> 
         : 
       null}
         {/* The Search Bar Header */}

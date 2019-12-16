@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const FooterButton = styled.a`
   display: none;
-  z-index: 3;
+  z-index: 99;
   @media(min-width: 768px){
     display: block;
     position: fixed;
