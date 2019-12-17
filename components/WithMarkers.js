@@ -29,15 +29,16 @@ class WithMarkers extends Component {
     },
     zoom: 11,
     target: {
-      latitude : 0,
-      longitude: 0
+      latitude : 6.207,
+      longitude: -75.564
     },
     id: null,
+    time: 1,
   }
   getLocation = () => {
     if (navigator.geolocation) {      
       navigator.geolocation.getCurrentPosition(this.getCoordinates);
-      let id = navigator.geolocation.watchPosition(this.success, this.error);
+      let id = navigator.geolocation.watchPosition(this.success, this.error, this.options);
       this.setState({id})
     } else {
       alert("Geolocation is not supported by this browser.");
@@ -72,13 +73,22 @@ class WithMarkers extends Component {
   }
   success = (pos) => {
     var crd = pos.coords;
+    this.setState({
+      time: this.state.time + 1,
+      latitude: crd.latitude,
+      longitude: crd.longitude,
+    })
   
     if (this.state.target.latitude === crd.latitude && this.state.target.longitude === crd.longitude) {
       console.log('Congratulations, you reached the target');
       navigator.geolocation.clearWatch(id);
     }
   }
-
+  options = {
+    enableHighAccuracy: true,
+    timeout: Infinity,
+    maximumAge: Infinity
+  };
   error = (err) => {
     console.warn('ERROR(' + err.code + '): ' + err.message);
   }
@@ -87,7 +97,7 @@ class WithMarkers extends Component {
       <div>
         <button onClick={this.getLocation}>Get coords</button>
         <button onClick={this.stopLocation}>Stop</button>
-        {this.state.latitude} // {this.state.longitude} // {this.state.id}
+        {this.state.latitude} // {this.state.longitude} // {this.state.id} // {this.state.time}
         {/* // Important! Always set the container height explicitly */}
         <div style={{ height: '100vh', width: '100%' }}>
           <GoogleMapReact            
