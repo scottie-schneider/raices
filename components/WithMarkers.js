@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'; 
+import styled from 'styled-components'
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const Photo = styled.img`
+  height: 32px;
+  width: 32px;
+`
+const AnyReactComponent = ({ text }) => (
+  <Photo src={text}></Photo>
+);
 
 
 class WithMarkers extends Component {
@@ -10,7 +17,7 @@ class WithMarkers extends Component {
       lat: 6.2172586999999995,
       lng: -75.5625925
     },
-    zoom: 11
+    zoom: 14
   };
   state = {
     latitude: null,
@@ -67,9 +74,14 @@ class WithMarkers extends Component {
             defaultZoom={this.props.zoom}
           >
             <AnyReactComponent
-              lat={6.21}
-              lng={-75.56}
-              text="My Marker"
+              lat={6.207}
+              lng={-75.564}
+              text={'https://image.flaticon.com/icons/png/512/171/171239.png'} 
+            />
+            <AnyReactComponent
+              lat={6.208}
+              lng={-75.563}
+              text={'https://res.cloudinary.com/dvqw5uhrr/image/upload/v1570485457/Raices/AgentPhotos/Jim_Johnson.jpg'} 
             />
           </GoogleMapReact>
         </div>
