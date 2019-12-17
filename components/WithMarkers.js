@@ -113,5 +113,5 @@ class WithMarkers extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: (process.env.GOOGLE_MAPS)
+  apiKey: ('AIzaSyDZPh3bfqIX-MJw4WhM8w7mos3hIR0MPmY')
 })(WithMarkers)
