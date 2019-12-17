@@ -74,7 +74,7 @@ class WithMarkers extends Component {
         <button onClick={this.getLocation}>Get coords</button>
         {this.state.latitude} // {this.state.longitude} 
 
-        {/* <Map
+        <Map
           className="map"
           google={this.props.google}
           onClick={this.onMapClicked}
@@ -89,7 +89,7 @@ class WithMarkers extends Component {
             lng: -75.5625925
           }}
         >
-          <Marker
+          {/* <Marker
             name="Agent"
             onClick={this.onMarkerClick}
             position={{ lat: 6.207542, lng: -75.564060 }}
@@ -98,16 +98,16 @@ class WithMarkers extends Component {
               anchor: new google.maps.Point(32,32),
               scaledSize: new google.maps.Size(50,50)
             }}
-          />
-          <InfoWindow
+          /> */}
+          {/* <InfoWindow
             marker={this.state.activeMarker}
             onClose={this.onInfoWindowClose}
             visible={this.state.showingInfoWindow}>
             <div>
               <h1>{this.state.selectedPlace.name}</h1>
             </div>
-          </InfoWindow>
-        </Map> */}
+          </InfoWindow> */}
+        </Map>
         <p>Map</p>
       </div>
     );
