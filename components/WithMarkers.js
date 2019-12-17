@@ -1,32 +1,26 @@
 import React, { Component } from 'react'
+import GoogleMapReact from 'google-map-react'; 
 
-import dynamic from 'next/dynamic'
-const Map = dynamic(
-  () => import('./map/Map.js'),
-  { ssr: false }
-)
-const InfoWindow = dynamic(
-  () => import('./map/InfoWindow'),
-  { ssr: false }
-)
-const Marker = dynamic(
-  () => import('./map/Marker'),
-  { ssr: false }
-)
-// import Map from './map/Map.js';
-// import InfoWindow from './map/InfoWindow';
-// import Marker from './map/Marker';
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-import {GoogleApiWrapper} from 'google-maps-react';
 
 class WithMarkers extends Component {
+  static defaultProps = {
+    center: {
+      lat: 6.2172586999999995,
+      lng: -75.5625925
+    },
+    zoom: 11
+  };
   state = {
     latitude: null,
     longitude: null, 
     userAddress: null,
-    sactiveMarker: {},
-    selectedPlace: {},
-    showingInfoWindow: false
+    center: {
+      lat: 59.95,
+      lng: 30.33
+    },
+    zoom: 11
   }
   getLocation = () => {
     if (navigator.geolocation) {
@@ -59,71 +53,29 @@ class WithMarkers extends Component {
       alert("An Unknown default error occurred")
     }
   }
-  onMarkerClick = (props, marker) =>
-    this.setState({
-      activeMarker: marker,
-      selectedPlace: props,
-      showingInfoWindow: true
-    });
-
-  onInfoWindowClose = () =>
-    this.setState({
-      activeMarker: null,
-      showingInfoWindow: false
-    });
-
-  onMapClicked = () => {
-    if (this.state.showingInfoWindow)
-      this.setState({
-        activeMarker: null,
-        showingInfoWindow: false
-      });
-  };
 
   render() {    
     return (      
       <div>
         <button onClick={this.getLocation}>Get coords</button>
         {this.state.latitude} // {this.state.longitude} 
-        <Map
-          className="map"
-          google={this.props.google}
-          onClick={this.onMapClicked}
-          style={{ height: '100%', position: 'relative', width: '100%' }}
-          zoom={14}
-          initialCenter={{
-            lat: 6.2172586999999995,
-            lng: -75.5625925
-          }}
-          center={{
-            lat: 6.2172586999999995,
-            lng: -75.5625925
-          }}
-        >
-          <Marker
-            name="Agent"
-            onClick={this.onMarkerClick}
-            position={{ lat: 6.207542, lng: -75.564060 }}
-            icon={{
-              url: "https://image.flaticon.com/icons/png/512/171/171239.png",
-              anchor: new google.maps.Point(32,32),
-              scaledSize: new google.maps.Size(50,50)
-            }}
-          />
-          <InfoWindow
-            marker={this.state.activeMarker}
-            onClose={this.onInfoWindowClose}
-            visible={this.state.showingInfoWindow}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
-          </InfoWindow>
-        </Map>
+        {/* // Important! Always set the container height explicitly */}
+        <div style={{ height: '100vh', width: '100%' }}>
+          <GoogleMapReact            
+            bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS }}
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+          >
+            <AnyReactComponent
+              lat={6.21}
+              lng={-75.56}
+              text="My Marker"
+            />
+          </GoogleMapReact>
+        </div>
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: (process.env.GOOGLE_MAPS)
-})(WithMarkers)
+export default WithMarkers;
