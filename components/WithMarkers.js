@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import Map from './map/Map.js';
-import InfoWindow from './map/InfoWindow';
-import Marker from './map/Marker';
+// import Map from './map/Map.js';
+// import InfoWindow from './map/InfoWindow';
+// import Marker from './map/Marker';
 
 import {GoogleApiWrapper} from 'google-maps-react';
 
@@ -46,12 +46,12 @@ class WithMarkers extends Component {
       alert("An Unknown default error occurred")
     }
   }
-  // onMarkerClick = (props, marker) =>
-  //   this.setState({
-  //     activeMarker: marker,
-  //     selectedPlace: props,
-  //     showingInfoWindow: true
-  //   });
+  onMarkerClick = (props, marker) =>
+    this.setState({
+      activeMarker: marker,
+      selectedPlace: props,
+      showingInfoWindow: true
+    });
 
   onInfoWindowClose = () =>
     this.setState({
@@ -73,7 +73,8 @@ class WithMarkers extends Component {
       <div>
         <button onClick={this.getLocation}>Get coords</button>
         {this.state.latitude} // {this.state.longitude} 
-        <Map
+
+        {/* <Map
           className="map"
           google={this.props.google}
           onClick={this.onMapClicked}
@@ -98,15 +99,6 @@ class WithMarkers extends Component {
               scaledSize: new google.maps.Size(50,50)
             }}
           />
-
-          {/* <Marker
-            name="Client"
-            onClick={this.onMarkerClick}
-            position={{ lat: 37.759703, lng: -122.428093 }}
-          /> */}
-
-          {/* <Marker name="Current location" onClick={this.onMarkerClick} /> */}
-
           <InfoWindow
             marker={this.state.activeMarker}
             onClose={this.onInfoWindowClose}
@@ -115,13 +107,8 @@ class WithMarkers extends Component {
               <h1>{this.state.selectedPlace.name}</h1>
             </div>
           </InfoWindow>
-
-          {/* <InfoWindow position={{ lat: 37.765703, lng: -122.42564 }} visible>
-            <small>
-              Click on any of the markers to display an additional info.
-            </small>
-          </InfoWindow> */}
-        </Map>
+        </Map> */}
+        <p>Map</p>
       </div>
     );
   }
