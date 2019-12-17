@@ -88,27 +88,8 @@ class WithMarkers extends Component {
             lat: 6.2172586999999995,
             lng: -75.5625925
           }}
-        >
-          {/* <Marker
-            name="Agent"
-            onClick={this.onMarkerClick}
-            position={{ lat: 6.207542, lng: -75.564060 }}
-            icon={{
-              url: "https://image.flaticon.com/icons/png/512/171/171239.png",
-              anchor: new google.maps.Point(32,32),
-              scaledSize: new google.maps.Size(50,50)
-            }}
-          /> */}
-          {/* <InfoWindow
-            marker={this.state.activeMarker}
-            onClose={this.onInfoWindowClose}
-            visible={this.state.showingInfoWindow}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
-          </InfoWindow> */}
-        </Map>
-        <p>Map</p>
+        >          
+        </Map>        
       </div>
     );
   }
