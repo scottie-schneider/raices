@@ -27,11 +27,18 @@ class WithMarkers extends Component {
       lat: 59.95,
       lng: 30.33
     },
-    zoom: 11
+    zoom: 11,
+    target: {
+      latitude : 0,
+      longitude: 0
+    },
+    id: null,
   }
   getLocation = () => {
-    if (navigator.geolocation) {
+    if (navigator.geolocation) {      
       navigator.geolocation.getCurrentPosition(this.getCoordinates);
+      let id = navigator.geolocation.watchPosition(this.success, this.error);
+      this.setState({id})
     } else {
       alert("Geolocation is not supported by this browser.");
     }
@@ -41,6 +48,9 @@ class WithMarkers extends Component {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude,
     })
+  }
+  stopLocation = () => {
+    navigator.geolocation.clearWatch(this.state.id);
   }
   handleLocationError = (error) => {
     switch(error.code) {
@@ -60,12 +70,24 @@ class WithMarkers extends Component {
       alert("An Unknown default error occurred")
     }
   }
+  success = (pos) => {
+    var crd = pos.coords;
+  
+    if (this.state.target.latitude === crd.latitude && this.state.target.longitude === crd.longitude) {
+      console.log('Congratulations, you reached the target');
+      navigator.geolocation.clearWatch(id);
+    }
+  }
 
+  error = (err) => {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+  }
   render() {    
     return (      
       <div>
         <button onClick={this.getLocation}>Get coords</button>
-        {this.state.latitude} // {this.state.longitude} 
+        <button onClick={this.stopLocation}>Stop</button>
+        {this.state.latitude} // {this.state.longitude} // {this.state.id}
         {/* // Important! Always set the container height explicitly */}
         <div style={{ height: '100vh', width: '100%' }}>
           <GoogleMapReact            
@@ -74,8 +96,8 @@ class WithMarkers extends Component {
             defaultZoom={this.props.zoom}
           >
             <AnyReactComponent
-              lat={6.207}
-              lng={-75.564}
+              lat={this.state.latitude}
+              lng={this.state.longitude}
               text={'https://image.flaticon.com/icons/png/512/171/171239.png'} 
             />
             <AnyReactComponent
