@@ -46,12 +46,12 @@ class WithMarkers extends Component {
       alert("An Unknown default error occurred")
     }
   }
-  onMarkerClick = (props, marker) =>
-    this.setState({
-      activeMarker: marker,
-      selectedPlace: props,
-      showingInfoWindow: true
-    });
+  // onMarkerClick = (props, marker) =>
+  //   this.setState({
+  //     activeMarker: marker,
+  //     selectedPlace: props,
+  //     showingInfoWindow: true
+  //   });
 
   onInfoWindowClose = () =>
     this.setState({
@@ -71,12 +71,12 @@ class WithMarkers extends Component {
     // if (!this.props.loaded) return <div>Loading...</div>;
     return (
       <div>
-        {/* <button onClick={this.getLocation}>Get coords</button> */}
+        <button onClick={this.getLocation}>Get coords</button>
         {this.state.latitude} // {this.state.longitude} 
         <Map
           className="map"
           google={this.props.google}
-          // onClick={this.onMapClicked}
+          onClick={this.onMapClicked}
           style={{ height: '100%', position: 'relative', width: '100%' }}
           zoom={14}
           initialCenter={{
@@ -90,7 +90,7 @@ class WithMarkers extends Component {
         >
           <Marker
             name="Agent"
-            // onClick={this.onMarkerClick}
+            onClick={this.onMarkerClick}
             position={{ lat: 6.207542, lng: -75.564060 }}
             icon={{
               url: "https://image.flaticon.com/icons/png/512/171/171239.png",
