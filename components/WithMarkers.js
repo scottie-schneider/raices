@@ -80,7 +80,7 @@ class WithMarkers extends Component {
     })
   
     if (this.state.target.latitude === crd.latitude && this.state.target.longitude === crd.longitude) {
-      console.log('Congratulations, you reached the target');
+      alert('Congratulations, you reached the target');
       navigator.geolocation.clearWatch(id);
     }
   }
