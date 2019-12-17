@@ -71,7 +71,7 @@ class WithMarkers extends Component {
     // if (!this.props.loaded) return <div>Loading...</div>;
     return (
       <div>
-        <button onClick={this.getLocation}>Get coords</button>
+        {/* <button onClick={this.getLocation}>Get coords</button> */}
         {this.state.latitude} // {this.state.longitude} 
         <Map
           className="map"
