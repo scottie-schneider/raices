@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-// import Map from './map/Map.js';
+import Map from './map/Map.js';
 // import InfoWindow from './map/InfoWindow';
 // import Marker from './map/Marker';
 
@@ -67,8 +67,7 @@ class WithMarkers extends Component {
       });
   };
 
-  render() {
-    // if (!this.props.loaded) return <div>Loading...</div>;
+  render() {    
     return (
       <div>
         <button onClick={this.getLocation}>Get coords</button>
