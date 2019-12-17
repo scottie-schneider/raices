@@ -1,8 +1,21 @@
 import React, { Component } from 'react'
 
-import Map from './map/Map.js';
-import InfoWindow from './map/InfoWindow';
-import Marker from './map/Marker';
+import dynamic from 'next/dynamic'
+const Map = dynamic(
+  () => import('./map/Map.js'),
+  { ssr: false }
+)
+const InfoWindow = dynamic(
+  () => import('./map/InfoWindow'),
+  { ssr: false }
+)
+const Marker = dynamic(
+  () => import('./map/Marker'),
+  { ssr: false }
+)
+// import Map from './map/Map.js';
+// import InfoWindow from './map/InfoWindow';
+// import Marker from './map/Marker';
 
 import {GoogleApiWrapper} from 'google-maps-react';
 
@@ -67,8 +80,7 @@ class WithMarkers extends Component {
       });
   };
 
-  render() {
-    if (!this.props.loaded) return <div>Loading...</div>;
+  render() {    
     return (      
       <div>
         <button onClick={this.getLocation}>Get coords</button>
@@ -113,5 +125,5 @@ class WithMarkers extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyDZPh3bfqIX-MJw4WhM8w7mos3hIR0MPmY')
+  apiKey: (process.env.GOOGLE_MAPS)
 })(WithMarkers)

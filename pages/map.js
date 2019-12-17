@@ -1,9 +1,4 @@
-// import WithMarkers from '../components/WithMarkers';
-import dynamic from 'next/dynamic'
-const WithMarkers = dynamic(
-  () => import('../components/WithMarkers'),
-  { ssr: false }
-)
+import WithMarkers from '../components/WithMarkers';
 
 class Map extends React.Component {
   render() {
