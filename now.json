@@ -4,7 +4,7 @@
   "build": {
     "env": {
       "NPM_RC": "//registry.npmjs.org/:_authToken=e555be22-2b28-40f6-aacd-8a5da95758cf\n@bit:registry=https://node.bit.dev\n//node.bitsrc.io/:_authToken=e555be22-2b28-40f6-aacd-8a5da95758cf\n//node.bit.dev/:_authToken=e555be22-2b28-40f6-aacd-8a5da95758cf",
-      "GOOGLE_MAPS": "@google-maps"
+      "GOOGLE_MAPS": "@GOOGLE_MAPS"
     }
   },
   "routes": [	
