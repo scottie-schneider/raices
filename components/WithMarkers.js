@@ -10,7 +10,6 @@ const AnyReactComponent = ({ text }) => (
   <Photo src={text}></Photo>
 );
 
-
 class WithMarkers extends Component {
   static defaultProps = {
     center: {
