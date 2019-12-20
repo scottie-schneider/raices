@@ -1,0 +1,21 @@
+{
+  "name": "Raices",
+  "short_name": "Raices",
+  "icons": [
+    {
+      "src": "/static/raices192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/raices512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#FFFFFF",
+  "description": "Raices from static...",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#000"
+}
